@@ -2,7 +2,7 @@ import 'package:dart_utils/src/list_extensions.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('A List extension tests', () {
+  group('Generic List extension tests', () {
     test('Test the repeat operator', () {
       List<List<int>> emptyList = [[]];
       List<List<int>> repeatedList = emptyList * 3;
@@ -37,6 +37,7 @@ void main() {
         [9, 4],
         2
       ];
+
       List<dynamic> listOfInt = [1, 3, 2, 5, 6, 2, 2];
       List<dynamic> listOfMap = [
         map2,
@@ -45,6 +46,46 @@ void main() {
       expect(listOfList.count([1, 2]), 2);
       expect(listOfMap.count(mapToTest), 1);
       expect(listOfInt.count(2), 3);
+    });
+  });
+  group('IntList Extension Tests', () {
+    test('sum of non-empty iterable', () {
+      var numbers = [1, 2, 3, 4, 5];
+      expect(numbers.sum, equals(15));
+    });
+
+    test('average of non-empty iterable', () {
+      var numbers = [1, 2, 3, 4, 5];
+      expect(numbers.average, closeTo(3, 0.01)); // Adjust tolerance as needed
+    });
+
+    test('median of odd-length iterable', () {
+      var numbers = [1, 2, 3, 4, 5];
+      expect(numbers.median(), equals(3));
+    });
+
+    test('median of even-length iterable', () {
+      var numbers = [1, 2, 3, 4];
+      expect(numbers.median(), equals(2.5));
+    });
+
+    test('max of non-empty iterable', () {
+      var numbers = [1, 2, 3, 4, 5];
+      expect(numbers.max, equals(5));
+    });
+
+    test('min of non-empty iterable', () {
+      var numbers = [1, 2, 3, 4, 5];
+      expect(numbers.min, equals(1));
+    });
+
+    test('empty iterable throws StateError', () {
+      List<int> numbers = [];
+      expect(() => numbers.sum, throwsA(isA<StateError>()));
+      expect(() => numbers.average, throwsA(isA<StateError>()));
+      expect(() => numbers.median(), throwsA(isA<Exception>()));
+      expect(() => numbers.max, throwsA(isA<StateError>()));
+      expect(() => numbers.min, throwsA(isA<StateError>()));
     });
   });
 }
