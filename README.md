@@ -1,8 +1,8 @@
-# Dart Utils Package
+# Dart Advanced Utils Package
 
 ## Overview
 
-The **Dart Utils** package enhances the default dart object by adding powerful and flexible methods. Inspired by Python's versatile, this package introduces extensions that make working with object in Dart more intuitive and concise.
+The **Dart Advanced Utils** package enhances the default dart object by adding powerful and flexible methods. Inspired by Python's versatile, this package introduces extensions that make working with object in Dart more intuitive and concise.
 
 ## Installation
 
@@ -10,7 +10,7 @@ Add the following dependency to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  dart_utils: ^1.0.0
+  dart_advanced_utils: ^1.0.0
 ```
 
 Run `pub get` to install the package.
@@ -20,7 +20,7 @@ Run `pub get` to install the package.
 Import the package in your Dart code:
 
 ```dart
-import 'package:dart_utils/dart_utils.dart';
+import 'package:dart_advanced_utils/dart_advanced_utils.dart';
 ```
 
 ## Features
@@ -57,7 +57,7 @@ import 'package:dart_utils/dart_utils.dart';
 ### Examples
 
 ```dart
-import 'package:dart_utils/dart_utils.dart';
+import 'package:dart_advanced_utils/dart_advanced_utils.dart';
 
 void main() {
   List<int> numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -94,4 +94,4 @@ This project is licensed under the MIT License.
 
 ---
 
-With these extensions, the **Dart Utils** package aims to provide a comprehensive set of tools to enhance your Dart development experience, making common list operations more intuitive and powerful.
+With these extensions, the **Dart Advanced Utils** package aims to provide a comprehensive set of tools to enhance your Dart development experience, making common list operations more intuitive and powerful.
