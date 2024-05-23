@@ -1,4 +1,4 @@
-import 'package:dart_utils/dart_utils.dart';
+import 'package:dart_advanced_utils/dart_advanced_utils.dart';
 
 void main() {
   List<int> numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
