@@ -1,4 +1,4 @@
-import 'package:dart_utils/src/list_extensions.dart';
+import 'package:dart_advanced_utils/src/list_extensions.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -56,7 +56,7 @@ void main() {
 
     test('average of non-empty iterable', () {
       var numbers = [1, 2, 3, 4, 5];
-      expect(numbers.average, closeTo(3, 0.01)); // Adjust tolerance as needed
+      expect(numbers.average, closeTo(3, 0.01));
     });
 
     test('median of odd-length iterable', () {
