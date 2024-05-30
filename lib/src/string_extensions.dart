@@ -1,7 +1,7 @@
 /// Extensions for formatting strings.
 ///
 /// This extension provides methods for formatting strings.
-extension StringFormatExtension on String {
+extension StringFormat on String {
   /// Returns a new string with leading and trailing characters removed.
   ///
   /// The optional [chars] argument specifies the characters to remove.
@@ -21,9 +21,9 @@ extension StringFormatExtension on String {
   ///
   /// Example:
   /// ```dart
-  /// print('hello world'.title()); // Output: Hello World
+  /// print('hello world'.title); // Output: Hello World
   /// ```
-  String title() {
+  String get title {
     if (isEmpty) return this;
 
     final words = split(' ');
@@ -77,9 +77,9 @@ extension StringFormatExtension on String {
   ///
   /// Example:
   /// ```dart
-  /// print('hello world'.capitalize()); // Output: Hello world
+  /// print('hello world'.capitalize); // Output: Hello world
   /// ```
-  String capitalize() {
+  String get capitalize {
     if (isEmpty) return this;
     return this[0].toUpperCase() + substring(1);
   }
@@ -112,7 +112,7 @@ extension StringFormatExtension on String {
   ///
   /// Example:
   /// ```dart
-  /// print('hello world'.count('l')); // Output: 2
+  /// print('hello world'.count('l')); // Output: 3
   /// ```
   int count(String substring) {
     return RegExp(substring).allMatches(this).length;
@@ -169,7 +169,7 @@ extension StringFormatExtension on String {
   /// It returns `true` if the string is a valid email address, and `false` otherwise.
   ///
   /// Returns a boolean value indicating whether the current string is a valid email address.
-  bool isValidEmail() {
+  bool get isValidEmail {
     if (isEmpty) return false;
     final emailRegExp = RegExp(r'^[^@]+@[^@]+\.[^@]+');
     return emailRegExp.hasMatch(this);
@@ -183,14 +183,14 @@ extension StringFormatExtension on String {
   /// Example:
   /// ```dart
   /// String str1 = "Hello123";
-  /// print(str1.isAlphanumeric()); // Output: true
+  /// print(str1.isAlphanumeric); // Output: true
   ///
   /// String str2 = "Hello World";
-  /// print(str2.isAlphanumeric()); // Output: false
+  /// print(str2.isAlphanumeric); // Output: false
   /// ```
   ///
   /// Returns a boolean value indicating whether the current string is alphanumeric.
-  bool isAlphanumeric() {
+  bool get isAlphanumeric {
     if (isEmpty) return false;
     final alphanumericRegExp = RegExp(r'^[a-zA-Z0-9]+$');
     return alphanumericRegExp.hasMatch(this);
@@ -230,11 +230,11 @@ extension StringFormatExtension on String {
   ///
   /// Example:
   /// ```dart
-  /// print('hello_world'.toCamelCase()); // Output: helloWorld
-  /// print('hello-world'.toCamelCase()); // Output: helloWorld
-  /// print(''.toCamelCase()); // Output: ''
+  /// print('hello_world'.toCamelCase); // Output: helloWorld
+  /// print('hello-world'.toCamelCase); // Output: helloWorld
+  /// print(''.toCamelCase); // Output: ''
   /// ```
-  String toCamelCase() {
+  String get toCamelCase {
     if (isEmpty) return this;
     String camelCaseString = toLowerCase();
     final regExp = RegExp(r'[_-](\w)');
@@ -255,14 +255,27 @@ extension StringFormatExtension on String {
   ///
   /// Example:
   /// ```dart
-  /// 'camelCaseString'.toKebabCase(); // 'camel-case-string'
+  /// 'camelCaseString'.toKebabCase; // 'camel-case-string'
   /// ```
-  String toKebabCase() {
+  String get toKebabCase {
     if (isEmpty) return this;
     return replaceAllMapped(
       RegExp(r'([a-z])([A-Z])'),
       (match) => '${match[1]}-${match[2]}',
     ).toLowerCase();
+  }
+
+  /// Converts a camelCase string to snake_case.
+  ///
+  /// Example:
+  /// ```dart
+  /// String str = "camelCaseExample";
+  /// print(str.toSnakeCase); // "camel_case_example"
+  /// ```
+  String get toSnakeCase {
+    return replaceAllMapped(RegExp(r'[A-Z]'), (match) {
+      return '_${match.group(0)!.toLowerCase()}';
+    }).replaceFirstMapped(RegExp(r'^_'), (match) => '');
   }
 
   /// Truncates the string to the specified [length] and optionally adds an ellipsis.
@@ -307,9 +320,9 @@ extension StringFormatExtension on String {
   ///
   /// Example:
   /// ```dart
-  /// print('  Hello World  '.removeWhitespaces()); // Output: 'HelloWorld'
+  /// print('  Hello World  '.removeWhitespaces); // Output: 'HelloWorld'
   /// ```
-  String removeWhitespaces() {
+  String get removeWhitespaces {
     if (isEmpty) return this;
     return replaceAll(RegExp(r'\s+'), '');
   }
@@ -330,4 +343,27 @@ extension StringFormatExtension on String {
   /// Returns:
   /// A new string with all punctuation characters removed.
   String get removePunctuation => replaceAll(RegExp(r'[^\w\s]'), '');
+
+  /// Checks if the string is a palindrome.
+  ///
+  /// Example:
+  /// ```dart
+  /// String str = "A man a plan a canal Panama";
+  /// print(str.isPalindrome); // true
+  /// ```
+  bool get isPalindrome {
+    String cleanedString = toLowerCase().replaceAll(RegExp(r'[^a-z0-9]'), '');
+    return cleanedString == cleanedString.split('').reversed.join('');
+  }
+
+  /// Counts the number of words in the string.
+  ///
+  /// Example:
+  /// ```dart
+  /// String str = "Hello world, this is a test.";
+  /// print(str.wordCount); // 6
+  /// ```
+  int get wordCount {
+    return trim().split(RegExp(r'\s+')).length;
+  }
 }

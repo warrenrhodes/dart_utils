@@ -10,13 +10,13 @@ void main() {
   print(repeatedList); // Output: [54, 54, 54]
 
   String? email = "example@example.com";
-  print(email.isValidEmail()); // Output: true
+  print(email.isValidEmail); // Output: true
 
   String? number = "12345";
   print(number.isNumeric); // Output: true
 
   String? alphanumeric = "abc123";
-  print(alphanumeric.isAlphanumeric()); // Output: true
+  print(alphanumeric.isAlphanumeric); // Output: true
 
   String? blankString = "   ";
   print(blankString.isBlank); // Output: true

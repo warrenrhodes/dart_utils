@@ -14,9 +14,9 @@ void main() {
     });
 
     test('title', () {
-      expect('hello world'.title(), 'Hello World');
-      expect('HELLO WORLD'.title(), 'Hello World');
-      expect('hello'.title(), 'Hello');
+      expect('hello world'.title, 'Hello World');
+      expect('HELLO WORLD'.title, 'Hello World');
+      expect('hello'.title, 'Hello');
     });
 
     test('charToUpper with default index', () {
@@ -39,8 +39,8 @@ void main() {
     });
 
     test('capitalize', () {
-      expect('hello world'.capitalize(), 'Hello world');
-      expect('Hello world'.capitalize(), 'Hello world');
+      expect('hello world'.capitalize, 'Hello world');
+      expect('Hello world'.capitalize, 'Hello world');
     });
 
     test('center', () {
@@ -69,13 +69,13 @@ void main() {
     });
 
     test('isValidEmail', () {
-      expect('test@example.com'.isValidEmail(), true);
-      expect('invalid-email'.isValidEmail(), false);
+      expect('test@example.com'.isValidEmail, true);
+      expect('invalid-email'.isValidEmail, false);
     });
 
     test('isAlphanumeric', () {
-      expect('Hello123'.isAlphanumeric(), true);
-      expect('Hello World'.isAlphanumeric(), false);
+      expect('Hello123'.isAlphanumeric, true);
+      expect('Hello World'.isAlphanumeric, false);
     });
 
     test('isBlank', () {
@@ -89,12 +89,12 @@ void main() {
     });
 
     test('toCamelCase', () {
-      expect('hello_world'.toCamelCase(), 'helloWorld');
-      expect('hello-world'.toCamelCase(), 'helloWorld');
+      expect('hello_world'.toCamelCase, 'helloWorld');
+      expect('hello-world'.toCamelCase, 'helloWorld');
     });
 
     test('toKebabCase', () {
-      expect('camelCaseString'.toKebabCase(), 'camel-case-string');
+      expect('camelCaseString'.toKebabCase, 'camel-case-string');
     });
 
     test('truncate', () {
@@ -111,12 +111,26 @@ void main() {
     });
 
     test('removeWhitespaces', () {
-      expect('  Hello World  '.removeWhitespaces(), 'HelloWorld');
+      expect('  Hello World  '.removeWhitespaces, 'HelloWorld');
     });
 
     test('removePunctuation', () {
       expect('Hello, world!'.removePunctuation, 'Hello world');
       expect(''.removePunctuation, '');
+    });
+
+    test('isPalindrome', () {
+      expect('A man a plan a canal Panama'.isPalindrome, true);
+      expect('maman'.isPalindrome, false);
+    });
+
+    test('toSnakeCase', () {
+      expect('camelCaseExample'.toSnakeCase, 'camel_case_example');
+      expect('DartIsAwesome'.toSnakeCase, 'dart_is_awesome');
+    });
+    test('wordCount', () {
+      expect('Hello world, this is a test.'.wordCount, 6);
+      expect('Hello'.wordCount, 1);
     });
   });
 }

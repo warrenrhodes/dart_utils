@@ -61,12 +61,12 @@ void main() {
 
     test('median of odd-length iterable', () {
       var numbers = [1, 2, 3, 4, 5];
-      expect(numbers.median(), equals(3));
+      expect(numbers.median, equals(3));
     });
 
     test('median of even-length iterable', () {
       var numbers = [1, 2, 3, 4];
-      expect(numbers.median(), equals(2.5));
+      expect(numbers.median, equals(2.5));
     });
 
     test('max of non-empty iterable', () {
@@ -83,7 +83,7 @@ void main() {
       List<int> numbers = [];
       expect(() => numbers.sum, throwsA(isA<StateError>()));
       expect(() => numbers.average, throwsA(isA<StateError>()));
-      expect(() => numbers.median(), throwsA(isA<Exception>()));
+      expect(() => numbers.median, throwsA(isA<Exception>()));
       expect(() => numbers.max, throwsA(isA<StateError>()));
       expect(() => numbers.min, throwsA(isA<StateError>()));
     });
