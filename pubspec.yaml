@@ -1,6 +1,6 @@
 name: dart_advanced_utils
-description: A Dart utils package.
-version: 1.0.0
+description: A Dart advanced utils package enhances the default dart object by adding powerful and flexible methods.
+version: 1.0.1
 repository: https://github.com/warrenrhodes/dart_utils
 issue_tracker: https://github.com/warrenrhodes/dart_utils/issues
 
@@ -8,9 +8,17 @@ environment:
   sdk: ">=3.3.1 <4.0.0"
 
 dependencies:
+  clock: ^1.1.1
   collection: ^1.18.0
+  intl: ^0.19.0
 
 dev_dependencies:
   lints: ^3.0.0
   test: ^1.24.0
+
+topics:
+  - utils
+  - date
+  - string
+  - list
 

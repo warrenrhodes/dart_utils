@@ -26,6 +26,7 @@ import 'package:dart_advanced_utils/dart_advanced_utils.dart';
 ## Features
 
 ### List Extensions
+
 - **Operator***: Returns a new list that contains this list repeated [n] times.
 - **Operator+**: Concatenate two list.
 - **count**: Count the occurrences of an element in the list.
@@ -36,6 +37,7 @@ import 'package:dart_advanced_utils/dart_advanced_utils.dart';
 - **max**: Find the maximum value in the list.
 
 ### String Extensions
+
 - **capitalize**: Capitalize the first character of the string.
 - **center**: Center the string within a specified width.
 - **count**: Count the number of occurrences of a substring.
@@ -53,6 +55,23 @@ import 'package:dart_advanced_utils/dart_advanced_utils.dart';
 - **strip**: Returns a new string with leading and trailing characters removed.
 - **title**: Returns a new string with the first letter of each word capitalized and all other letters lowercased.
 - **charToUpper**: Returns a new string with the character at the specified [index] capitalized.
+
+### Date Extensions
+
+- **isToday** Checks if the DateTime instance represents today's date.
+- **isYesterday** Checks if the DateTime instance represents yesterday's date.
+- **isTomorrow** Checks if the DateTime instance represents tomorrow's date.
+- **isInPast** Checks if the current DateTime instance is in the past.
+- **isInFuture** if the current DateTime instance is in the future.
+- **isDateInRange** Checks if the current date is between the specified start date and end date.
+- **localizedWeekday** Returns the localized weekday name.
+- **localizedMonth** Returns the localized month name for the given day number.
+- **hasDurationPassed** Checks if the datetime has passed a specified duration.
+- **addBusinessDays** Adds a specified number of business days.
+- **subtractBusinessDays** Subtracts a specified number of business days.
+- **startOfMonth** Returns the first day of the month for a current date.
+- **endOfMonth**Returns the last day of the month for a given date.
+- **hasALeapYear** Determines if the year of a given date is a leap year.
 
 ### Examples
 
@@ -82,7 +101,6 @@ void main() {
 
 }
 ```
-
 
 ## Contributing
 

@@ -100,7 +100,7 @@ extension IntList<T extends num> on Iterable<T> {
   /// List<int> numbers = [1, 2, 3, 4];
   /// print(numbers.median); // Output: 2.5
   /// ```
-  num median() {
+  num get median {
     if (length == 0) {
       throw Exception('List is empty');
     }
