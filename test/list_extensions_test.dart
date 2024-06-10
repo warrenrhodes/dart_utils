@@ -7,7 +7,6 @@ void main() {
       List<List<int>> emptyList = [[]];
       List<List<int>> repeatedList = emptyList * 3;
       List repeatedList2 = [54] * 3;
-
       expect(repeatedList, [[], [], []]);
       expect(repeatedList2, [54, 54, 54]);
     });
@@ -77,6 +76,11 @@ void main() {
     test('min of non-empty iterable', () {
       var numbers = [1, 2, 3, 4, 5];
       expect(numbers.min, equals(1));
+    });
+
+    test('prod of non-empty iterable', () {
+      var numbers = [1, 2, 3, 4, 5];
+      expect(numbers.prod, equals(120));
     });
 
     test('empty iterable throws StateError', () {

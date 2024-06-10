@@ -1,3 +1,29 @@
+extension NullStringExtensions on String? {
+  /// Returns `true` if the string is `null` or empty, `false` otherwise.
+  ///
+  /// This getter checks if the string is `null` or if it is empty. It returns `true` if the string is `null` or if it has no characters.
+  ///
+  /// Example:
+  /// ```dart
+  /// final String? myString = null;
+  /// final bool isNullOrEmpty = myString.isNullOrEmpty;
+  /// print(isNullOrEmpty); // Prints true
+  ///
+  /// final String emptyString = '';
+  /// final bool isNullOrEmpty2 = emptyString.isNullOrEmpty;
+  /// print(isNullOrEmpty2); // Prints true
+  ///
+  /// final String nonEmptyString = 'Hello, world!';
+  /// final bool isNullOrEmpty3 = nonEmptyString.isNullOrEmpty;
+  /// print(isNullOrEmpty3); // Prints false
+  /// ```
+  ///
+  /// Returns:
+  /// - `true` if the string is `null` or empty.
+  /// - `false` otherwise.
+  bool get isNullOrEmpty => this == null || this!.isEmpty;
+}
+
 /// Extensions for formatting strings.
 ///
 /// This extension provides methods for formatting strings.
@@ -366,4 +392,102 @@ extension StringFormat on String {
   int get wordCount {
     return trim().split(RegExp(r'\s+')).length;
   }
+
+  /// Returns a new string with the case of each character swapped.
+  ///
+  /// If the string is empty, it returns the original string.
+  ///
+  /// Example:
+  /// ```dart
+  /// String str = "Hello world";
+  /// print(str.swapcase); // Output: hELLO wORLD
+  /// ```
+  String get swapcase {
+    if (isEmpty) return this;
+    return split('').map((char) {
+      if (char == char.toUpperCase()) return char.toLowerCase();
+      return char.toUpperCase();
+    }).join('');
+  }
+
+  /// Returns `true` if the string contains only digits, and `false` otherwise.
+  ///
+  /// This getter uses a regular expression to check if the string consists of one or more digits.
+  ///
+  /// Example:
+  /// ```dart
+  /// String str1 = "123";
+  /// print(str1.isDigit); // Output: true
+  ///
+  /// String str2 = "abc";
+  /// print(str2.isDigit); // Output: false
+  /// ```
+  bool get isDigit => RegExp(r'^[0-9]+$').hasMatch(this);
+
+  /// Formats the string by replacing placeholders with provided arguments.
+  ///
+  /// The function takes an optional list of positional arguments [posArgs] and
+  /// an optional map of named arguments [namedArgs]. The placeholders in the
+  /// string can be specified using curly braces `{}` for positional arguments
+  /// and `${name}` for named arguments. The function replaces these placeholders
+  /// with the corresponding values from the arguments.
+  ///
+  /// If [sep] is provided, it is used to join the words in the formatted string.
+  ///
+  /// Returns the formatted string.
+  ///
+  /// Example:
+  /// ```dart
+  /// String str = 'Hello {0}, my name is {1}';
+  /// String str2 = 'Hello {}, my name is {}';
+  /// print(str.format(posArgs: ['Dart', 'John']));  Output: Hello Dart, my name is John.
+  /// print(str2.format(posArgs: ['Jhon', 'Smith'])); Output: Hello Jhon, my name is Smith.
+  /// ```
+  String format(
+      {List<dynamic>? posArgs, Map<String, dynamic>? namedArgs, String? sep}) {
+    String result = this;
+
+    if (posArgs != null) {
+      for (int i = 0; i < posArgs.length; i++) {
+        result = result
+            .replaceAll('{$i}', posArgs[i].toString())
+            .replaceFirst('{}', posArgs[i].toString());
+      }
+    }
+
+    if (namedArgs != null) {
+      namedArgs.forEach((key, value) {
+        result = result.replaceAll('{$key}', value.toString());
+      });
+    }
+
+    return result.split(' ').join(sep ?? ' ');
+  }
+
+  /// Returns `true` if the string is a valid URL, `false` otherwise.
+  ///
+  /// This getter checks if the string matches the regular expression pattern for a valid URL.
+  /// It returns `true` if the string is a valid URL, and `false` otherwise.
+  ///
+  /// Example:
+  /// ```dart
+  /// final String url1 = 'https://www.example.com';
+  /// final bool isValidUrl1 = url1.isValidUrl;
+  /// print(isValidUrl1); // Prints true
+  ///
+  /// final String url2 = 'ftp://example.com';
+  /// final bool isValidUrl2 = url2.isValidUrl;
+  /// print(isValidUrl2); // Prints true
+  ///
+  /// final String url3 = 'example.com';
+  /// final bool isValidUrl3 = url3.isValidUrl;
+  /// print(isValidUrl3); // Prints false
+  /// ```
+  ///
+  /// Returns:
+  /// - `true` if the string is a valid URL.
+  /// - `false` otherwise.
+  bool get isUrl => RegExp(
+          r"^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$")
+      .hasMatch(this);
 }

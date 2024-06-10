@@ -140,4 +140,19 @@ extension IntList<T extends num> on Iterable<T> {
   T get min => length == 0
       ? throw StateError('No element')
       : reduce((curr, next) => curr < next ? curr : next);
+
+  /// Returns the product of all elements in the list.
+  ///
+  /// If the list is empty, a [StateError] is thrown with the message 'No element'.
+  ///
+  /// Returns the product of all elements in the list.
+  ///
+  /// Example:
+  /// ```dart
+  /// List<int> numbers = [1, 2, 3];
+  /// print(numbers.prod); // Output: 6
+  ///
+  num get prod => length == 0
+      ? throw StateError('No element')
+      : fold(1, (current, next) => current * next);
 }
