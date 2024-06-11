@@ -10,7 +10,7 @@ Add the following dependency to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  dart_advanced_utils: ^1.0.0
+  dart_advanced_utils: ^1.1.0
 ```
 
 Run `pub get` to install the package.
@@ -35,6 +35,7 @@ import 'package:dart_advanced_utils/dart_advanced_utils.dart';
 - **median**: Calculates the median of all elements in the list.
 - **min**: Find the minimum value in the list.
 - **max**: Find the maximum value in the list.
+- **prod**: Returns the product of all elements in the list.
 
 ### String Extensions
 
@@ -55,6 +56,9 @@ import 'package:dart_advanced_utils/dart_advanced_utils.dart';
 - **strip**: Returns a new string with leading and trailing characters removed.
 - **title**: Returns a new string with the first letter of each word capitalized and all other letters lowercased.
 - **charToUpper**: Returns a new string with the character at the specified [index] capitalized.
+- **format**: Formats the string by replacing placeholders with provided arguments.
+- **isDigit**: Returns `true` if the string contains only digits, and `false` otherwise
+- **swapcase**: Returns a new string with the case of each character swapped.
 
 ### Date Extensions
 
@@ -72,6 +76,10 @@ import 'package:dart_advanced_utils/dart_advanced_utils.dart';
 - **startOfMonth** Returns the first day of the month for a current date.
 - **endOfMonth**Returns the last day of the month for a given date.
 - **hasALeapYear** Determines if the year of a given date is a leap year.
+
+### Custom Function
+
+- **fprint** A formatted print function.
 
 ### Examples
 
