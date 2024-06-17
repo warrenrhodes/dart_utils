@@ -1,8 +1,15 @@
 # Dart Advanced Utils Package
 
+<div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+ <a href="https://dart-advanced-util.vercel.app/docs"> <img src="https://raw.githubusercontent.com/warrenrhodes/dart_utils/master/dart.png" width="750" height="190" alt="Dart Logo" /></a>
+</div>
+
+
 ## Overview
 
 The **Dart Advanced Utils** package enhances the default dart object by adding powerful and flexible methods. Inspired by Python's versatile, this package introduces extensions that make working with object in Dart more intuitive and concise.
+
+Get more informartion on [dart-advanced-util]("https://dart-advanced-util.vercel.app/docs)
 
 ## Installation
 
