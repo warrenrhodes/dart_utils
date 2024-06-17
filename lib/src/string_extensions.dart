@@ -262,7 +262,8 @@ extension StringFormat on String {
   /// ```
   String get toCamelCase {
     if (isEmpty) return this;
-    String camelCaseString = toLowerCase();
+    String camelCaseString =
+        replaceAllMapped(RegExp(r'\s'), (match) => '').toLowerCase();
     final regExp = RegExp(r'[_-](\w)');
     camelCaseString = camelCaseString.replaceAllMapped(regExp, (match) {
       return match.group(1)!.toUpperCase();
@@ -285,10 +286,12 @@ extension StringFormat on String {
   /// ```
   String get toKebabCase {
     if (isEmpty) return this;
-    return replaceAllMapped(
-      RegExp(r'([a-z])([A-Z])'),
-      (match) => '${match[1]}-${match[2]}',
-    ).toLowerCase();
+    return replaceAllMapped(RegExp(r'\s'), (match) => '')
+        .replaceAllMapped(
+          RegExp(r'([a-z])([A-Z])'),
+          (match) => '${match[1]}-${match[2]}',
+        )
+        .toLowerCase();
   }
 
   /// Converts a camelCase string to snake_case.
@@ -299,7 +302,8 @@ extension StringFormat on String {
   /// print(str.toSnakeCase); // "camel_case_example"
   /// ```
   String get toSnakeCase {
-    return replaceAllMapped(RegExp(r'[A-Z]'), (match) {
+    return replaceAllMapped(RegExp(r'\s'), (match) => '')
+        .replaceAllMapped(RegExp(r'[A-Z]'), (match) {
       return '_${match.group(0)!.toLowerCase()}';
     }).replaceFirstMapped(RegExp(r'^_'), (match) => '');
   }
@@ -481,13 +485,20 @@ extension StringFormat on String {
   ///
   /// final String url3 = 'example.com';
   /// final bool isValidUrl3 = url3.isValidUrl;
-  /// print(isValidUrl3); // Prints false
+  /// print(isValidUrl3); // Prints true
   /// ```
   ///
   /// Returns:
   /// - `true` if the string is a valid URL.
   /// - `false` otherwise.
-  bool get isUrl => RegExp(
-          r"^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$")
+  bool get isUrl => RegExp(r'^(([\w+-.]+):\/\/)?'
+          r'((([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,})|'
+          r'localhost|'
+          r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|'
+          r'\[[0-9a-fA-F:]+\])'
+          r'(:\d+)?'
+          r'(\/[-a-zA-Z0-9@:%._\+~#=]*)*'
+          r'(\?[;&a-zA-Z0-9%_.~+=-]*)?'
+          r'(\#[-a-zA-Z0-9_]*)?$')
       .hasMatch(this);
 }

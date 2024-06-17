@@ -1,3 +1,11 @@
+## 1.1.3
+
+- Updates the readme.md.  
+
+## 1.1.2
+
+- Updates some function.  
+
 ## 1.1.1
 
 - Downgrade the `intl`version to be compatible with many package.
