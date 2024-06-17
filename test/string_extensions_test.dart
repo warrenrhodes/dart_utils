@@ -132,5 +132,14 @@ void main() {
       expect('Hello world, this is a test.'.wordCount, 6);
       expect('Hello'.wordCount, 1);
     });
+    test('isValidUrl', () {
+      expect('https://www.example.com'.isUrl, true);
+      expect('ftp://example.com'.isUrl, true);
+      expect('example.com'.isUrl, true);
+      expect('invalid_url'.isUrl, false);
+      expect('http://[2001:db8::1]:8080'.isUrl, true);
+      expect('192.168.1'.isUrl, false);
+      expect('192.168.1.1'.isUrl, true);
+    });
   });
 }
