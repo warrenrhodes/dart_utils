@@ -1,6 +1,12 @@
+## 1.1.4
+
+## 1.1.3
+
+- Updates the readme.md.  
+
 ## 1.1.2
 
-- Updates some function. 
+- Updates some function.  
 
 ## 1.1.1
 
