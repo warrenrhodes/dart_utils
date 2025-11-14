@@ -23,3 +23,8 @@
 ## 1.0.0
 
 - Frist release.
+
+## 1.1.4
+
+- Update the `intl` version to be compatible with many package.
+
