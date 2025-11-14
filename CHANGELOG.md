@@ -26,7 +26,7 @@
 
 - Frist release.
 
-## 1.1.4
+## 1.2.0
 
 - Update the `intl` version to be compatible with many package.
 
