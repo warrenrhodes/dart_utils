@@ -1,6 +1,6 @@
 name: dart_advanced_utils
 description: A Dart advanced utils package enhances the default dart object by adding powerful and flexible methods.
-version: 1.1.4
+version: 1.2.0
 repository: https://github.com/warrenrhodes/dart_utils
 issue_tracker: https://github.com/warrenrhodes/dart_utils/issues
 
